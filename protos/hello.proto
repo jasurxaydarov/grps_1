@@ -10,7 +10,7 @@ message UserRequest {
   string name = 1;
   string surname = 2;
   string password = 3;
-  string number = 4;
+
 }
 
 message UserResponse {
