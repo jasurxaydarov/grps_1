@@ -14,14 +14,14 @@ type Storage struct {
 }
 
 type StorageI interface {
-	CreateUser(ctx context.Context,req modles.User) (string, error)
+	CreateUser(ctx context.Context, req modles.User) (string, error)
 }
 
 func NewStorage(db *pgx.Conn) StorageI {
 	return &Storage{db: db}
 }
 
-func (s *Storage) CreateUser(ctx context.Context,req modles.User) (string, error) {
+func (s *Storage) CreateUser(ctx context.Context, req modles.User) (string, error) {
 	UserId := uuid.New()
 
 	query := `
@@ -46,9 +46,9 @@ func (s *Storage) CreateUser(ctx context.Context,req modles.User) (string, error
 	if err != nil {
 
 		log.Println("error on CreateUser", err)
-		return "",err
+		return "", err
 	}
 
-	return "succesfully created",nil
+	return "succesfully created", nil
 
 }
